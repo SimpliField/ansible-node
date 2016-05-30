@@ -12,6 +12,8 @@ Role Variables
 --------------
 
 ```yaml
+# versions available: 0.12 | 4.x | 5.x | 6.x
+nodejs_version: 4.x
 ```
 
 Dependencies
