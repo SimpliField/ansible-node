@@ -1,4 +1,4 @@
-Nodejs
+Nodejs [![Build Status](https://travis-ci.org/SimpliField/ansible-node.svg?branch=master)](https://travis-ci.org/SimpliField/ansible-node) [![Ansible Role](https://img.shields.io/ansible/role/10027.svg?maxAge=2592000)](https://galaxy.ansible.com/SimpliField/node/)
 =========
 
 Setup nodejs
