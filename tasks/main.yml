@@ -1,0 +1,15 @@
+---
+- name: add nodejs GPG key into apt
+  apt_key:
+    url: "https://deb.nodesource.com/gpgkey/nodesource.gpg.key"
+    state: present
+
+- name: add nodejs repository
+  apt_repository:
+    repo: "deb https://deb.nodesource.com/node_{{nodejs_version}} wheezy main"
+    state: present
+
+- name: install nodejs package
+  apt:
+    pkg: nodejs
+    update-cache: yes
