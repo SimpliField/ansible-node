@@ -17,7 +17,7 @@ galaxy_info:
     - nodejs
     - javascript
 dependencies:
-- src: SimpliField.packages
+- role: SimpliField.packages
   packages:
   - apt-transport-https
   - python-pycurl
