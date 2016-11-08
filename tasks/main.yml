@@ -11,12 +11,20 @@
   apt_repository:
     repo: "deb https://deb.nodesource.com/node_{{nodejs_version}} wheezy main"
     state: present
+  register: nodejs_repo_added
+  tags:
+  - nodejs
+
+- name: apt update cache
+  apt:
+    update_cache: yes
+  when: nodejs_repo_added.changed
   tags:
   - nodejs
 
 - name: install nodejs package
   apt:
     pkg: nodejs
-    update-cache: yes
+    state: present
   tags:
   - nodejs
