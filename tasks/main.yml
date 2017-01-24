@@ -1,4 +1,12 @@
 ---
+- name: Install dependencies
+  apt: name={{ item }} state=present
+  with_items:
+    - apt-transport-https
+    - python-pycurl
+  tags:
+  - nodejs
+
 - name: add nodejs GPG key into apt
   apt_key:
     url: https://keyserver.ubuntu.com/pks/lookup?op=get&fingerprint=on&search=0x1655A0AB68576280
