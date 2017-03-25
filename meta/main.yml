@@ -21,3 +21,4 @@ dependencies:
   packages:
   - apt-transport-https
   - python-pycurl
+  packages_update_cache: "{{ nodejs_packages_update_cache }}"
