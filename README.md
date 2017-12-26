@@ -38,4 +38,4 @@ Example Playbook
 License
 -------
 
-BSD
+[BSD 3-clause](https://choosealicense.com/licenses/bsd-3-clause/)
