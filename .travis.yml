@@ -1,40 +1,18 @@
 ---
-language: python
-python: "2.7"
-sudo: true
+services:
+  - docker
 
-# Install ansible
-addons:
-  apt:
-    packages:
-    - python-pip
+env:
+  matrix:
+    - DOCKER_IMAGE=sebastienelet/docker-ubuntu1404-ansible DOCKER_INIT=/sbin/init ROLE_OPTIONS="nodejs_version=4.x"
+    - DOCKER_IMAGE=sebastienelet/docker-ubuntu1404-ansible DOCKER_INIT=/sbin/init ROLE_OPTIONS="nodejs_version=6.x"
+    - DOCKER_IMAGE=sebastienelet/docker-ubuntu1404-ansible DOCKER_INIT=/sbin/init ROLE_OPTIONS="nodejs_version=8.x"
 
-install:
-  # Install ansible
-  - pip install ansible
-
-  # Check ansible version
-  - ansible --version
-
-  # Create ansible.cfg with correct roles_path
-  - printf '[defaults]\nroles_path=../' >ansible.cfg
-
-  # Install dependencies
-  - ansible-galaxy install SimpliField.packages
+before_install:
+  - make docker-pull
 
 script:
-  # Basic role syntax check
-  - ansible-playbook tests/test.yml -i tests/inventory --syntax-check
-  # Run the role/playbook with ansible-playbook.
-  - ansible-playbook -i tests/inventory tests/test.yml --connection=local --sudo
-  # Run the role/playbook again, checking to make sure it's idempotent.
-  - >
-    ansible-playbook -i tests/inventory tests/test.yml --connection=local --sudo
-    | grep -q 'changed=0.*failed=0'
-    && (echo 'Idempotence test: pass' && exit 0)
-    || (echo 'Idempotence test: fail' && exit 1)
-  # Test if node binary is available
-  - ls -lah /usr/bin/node
+  - make test
 
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
