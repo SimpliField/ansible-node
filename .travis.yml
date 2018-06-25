@@ -7,6 +7,7 @@ env:
     - DOCKER_IMAGE=sebastienelet/docker-ubuntu1404-ansible DOCKER_INIT=/sbin/init ROLE_OPTIONS="nodejs_version=4.x"
     - DOCKER_IMAGE=sebastienelet/docker-ubuntu1404-ansible DOCKER_INIT=/sbin/init ROLE_OPTIONS="nodejs_version=6.x"
     - DOCKER_IMAGE=sebastienelet/docker-ubuntu1404-ansible DOCKER_INIT=/sbin/init ROLE_OPTIONS="nodejs_version=8.x"
+    - DOCKER_IMAGE=sebastienelet/docker-ubuntu1404-ansible DOCKER_INIT=/sbin/init ROLE_OPTIONS="nodejs_version=10.x"
 
 before_install:
   - make docker-pull
