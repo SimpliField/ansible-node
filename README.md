@@ -12,8 +12,8 @@ Role Variables
 --------------
 
 ```yaml
-# versions available: 0.12 | 4.x | 5.x | 6.x
-nodejs_version: 4.x
+# versions available: 0.12 | 4.x | 5.x | 6.x | 8.x | 10.x | 12.x
+nodejs_version: 10.x
 nodejs_packages_update_cache: no
 ```
 
